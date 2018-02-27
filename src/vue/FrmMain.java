@@ -1,9 +1,22 @@
 package vue;
 
-public class FrmMain extends java.awt.Frame {
+import metier.*;
+import vue.*;
 
+public class FrmMain extends java.awt.Frame {
+    private ModeleListPays modelesListPays = new ModeleListPays();
+    private ModeleListDisciplines modeleListDisciplines = new ModeleListDisciplines();
+    private ModeleListAthletes modeleListAthletes = new ModeleListAthletes();
+            
     public FrmMain() {
         initComponents();
+        initObservers();
+    }
+    
+    private void initObservers() {
+        modelesListPays.addObserver(new ListPaysObserver());
+        modeleListDisciplines.addObserver(new ListDisciplineObserver());
+        modeleListAthletes.addObserver(new ListAthletesObserver());
     }
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
