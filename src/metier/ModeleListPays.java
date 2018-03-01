@@ -5,10 +5,21 @@
  */
 package metier;
 
+import domaine.Pays;
+
 /**
  *
  * @author samyabouseda
  */
 public class ModeleListPays extends ListeObjects {
+    public void chargerDonnes() {
+        super.aListe = dao.PaysDao.getListePays();
+        setChanged(); notifyObservers(new Action(Action.LOAD));
+    }
     
+    /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    public Pays get(int pos) {
+        if (pos < 0 || pos >= aListe.size()) { return null; }
+        return (Pays)super.get(pos);
+    }
 }

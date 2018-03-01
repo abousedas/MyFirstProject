@@ -5,10 +5,21 @@
  */
 package metier;
 
+import domaine.Sport;
+
 /**
  *
  * @author samyabouseda
  */
 public class ModeleListDisciplines extends ListeObjects {
+    public void chargerDonnes() {
+        super.aListe = dao.SportDao.getListeSports();
+        setChanged(); notifyObservers(new Action(Action.LOAD));
+    }
     
+    /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    public Sport get(int pos) {
+        if (pos < 0 || pos >= aListe.size()) { return null; }
+        return (Sport)super.get(pos);
+    }
 }

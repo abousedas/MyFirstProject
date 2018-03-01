@@ -4,19 +4,25 @@ import metier.*;
 import vue.*;
 
 public class FrmMain extends java.awt.Frame {
-    private ModeleListPays modelesListPays = new ModeleListPays();
-    private ModeleListDisciplines modeleListDisciplines = new ModeleListDisciplines();
-    private ModeleListAthletes modeleListAthletes = new ModeleListAthletes();
+    private ModeleListPays mListPays = new ModeleListPays();
+    private ModeleListDisciplines mListDisciplines = new ModeleListDisciplines();
+    private ModeleListAthletes mListAthletes = new ModeleListAthletes();
             
     public FrmMain() {
         initComponents();
         initObservers();
+        loadData();
     }
     
     private void initObservers() {
-        modelesListPays.addObserver(new ListPaysObserver());
-        modeleListDisciplines.addObserver(new ListDisciplineObserver());
-        modeleListAthletes.addObserver(new ListAthletesObserver());
+        mListPays.addObserver(new ListPaysObserver(lstPays, mListAthletes));
+        mListDisciplines.addObserver(new ListDisciplineObserver(lstSports, mListAthletes));
+        mListAthletes.addObserver(new ListAthletesObserver(lstAthletes));
+    }
+    
+    private void loadData() {
+        mListPays.chargerDonnes();
+        mListDisciplines.chargerDonnes();
     }
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,6 +47,12 @@ public class FrmMain extends java.awt.Frame {
             }
         });
 
+        lstPays.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lstPaysItemStateChanged(evt);
+            }
+        });
+
         tfNo.setEditable(false);
 
         tfPrenom.setEditable(false);
@@ -49,6 +61,12 @@ public class FrmMain extends java.awt.Frame {
         tfNom.setName(""); // NOI18N
 
         tfPays.setEditable(false);
+
+        lstSports.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lstSportsItemStateChanged(evt);
+            }
+        });
 
         lstAthletes.setName(""); // NOI18N
 
@@ -111,6 +129,14 @@ public class FrmMain extends java.awt.Frame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
+
+    private void lstPaysItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstPaysItemStateChanged
+        mListPays.setPos(lstPays.getSelectedIndex());
+    }//GEN-LAST:event_lstPaysItemStateChanged
+
+    private void lstSportsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstSportsItemStateChanged
+        mListDisciplines.setPos(lstSports.getSelectedIndex());
+    }//GEN-LAST:event_lstSportsItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.List lstAthletes;

@@ -5,17 +5,38 @@
  */
 package vue;
 
+import java.awt.List;
 import java.util.Observable;
 import java.util.Observer;
+import metier.Action;
+import metier.ModeleListAthletes;
 
 /**
  *
  * @author samyabouseda
  */
 public class ListAthletesObserver implements Observer {
+    List list;
     
-    public ListAthletesObserver() {}
+    public ListAthletesObserver(List list) { this.list = list; }
     
-    public void update(Observable o, Object arg) {}
+    public void update(Observable o, Object args) {
+        switch(((Action)args).getAction()) {
+            case Action.UPD : chargerAthletes((ModeleListAthletes)o); break;
+            case Action.LOAD: remplireListe((ModeleListAthletes)o);
+        }
+    }
+    
+    private void chargerAthletes(ModeleListAthletes o) {
+        o.chargerAthletes();
+    }
+    
+    private void remplireListe(ModeleListAthletes o) {
+        int size = o.size();
+        list.removeAll();
+        for (int i = 0; i < size; i++) {
+            list.add(o.get(i).toString());
+        }
+    }
     
 }
