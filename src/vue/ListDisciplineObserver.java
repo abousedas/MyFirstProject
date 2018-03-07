@@ -10,9 +10,9 @@ import java.awt.List;
 import java.util.Observable;
 import java.util.Observer;
 import metier.Action;
-import metier.ModeleListAthletes;
-import metier.ModeleListDisciplines;
-import metier.ModeleListPays;
+import metier.ListAthletes;
+import metier.ListDisciplines;
+import metier.ListPays;
 
 /**
  *
@@ -20,18 +20,18 @@ import metier.ModeleListPays;
  */
 public class ListDisciplineObserver implements Observer {
     List list;
-    ModeleListAthletes mAthletes;
+    ListAthletes mAthletes;
     
-    public ListDisciplineObserver(List list, ModeleListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
+    public ListDisciplineObserver(List list, ListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
     
     public void update(Observable o, Object args) {
         switch(((Action)args).getAction()) {
-            case Action.LOAD: chargerDisciplines((ModeleListDisciplines)o); break;
-            case Action.SEL : selSport((ModeleListDisciplines)o);
+            case Action.LOAD: chargerDisciplines((ListDisciplines)o); break;
+            case Action.SEL : selSport((ListDisciplines)o); break;
         }
     }
     
-    private void chargerDisciplines(ModeleListDisciplines o) {
+    private void chargerDisciplines(ListDisciplines o) {
         int size = o.size();
         list.removeAll();
         for (int i = 0; i < size; i++) {
@@ -39,7 +39,7 @@ public class ListDisciplineObserver implements Observer {
         }
     }
     
-    private void selSport(ModeleListDisciplines o) {
+    private void selSport(ListDisciplines o) {
         Sport sport = o.get(o.getPos());
         mAthletes.setSportCrt(sport);
     }

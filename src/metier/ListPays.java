@@ -11,7 +11,7 @@ import domaine.Pays;
  *
  * @author samyabouseda
  */
-public class ModeleListPays extends ListeObjects {
+public class ListPays extends ListeObjects {
     public void chargerDonnes() {
         super.aListe = dao.PaysDao.getListePays();
         setChanged(); notifyObservers(new Action(Action.LOAD));

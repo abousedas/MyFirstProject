@@ -11,7 +11,7 @@ import domaine.Sport;
  *
  * @author samyabouseda
  */
-public class ModeleListDisciplines extends ListeObjects {
+public class ListDisciplines extends ListeObjects {
     public void chargerDonnes() {
         super.aListe = dao.SportDao.getListeSports();
         setChanged(); notifyObservers(new Action(Action.LOAD));

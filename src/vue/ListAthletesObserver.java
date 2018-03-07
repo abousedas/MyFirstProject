@@ -5,11 +5,13 @@
  */
 package vue;
 
+import domaine.Athlete;
 import java.awt.List;
+import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
 import metier.Action;
-import metier.ModeleListAthletes;
+import metier.ListAthletes;
 
 /**
  *
@@ -17,26 +19,27 @@ import metier.ModeleListAthletes;
  */
 public class ListAthletesObserver implements Observer {
     List list;
+    public ListAthletesObserver(List list) { 
+        this.list=list;;
+    }
     
-    public ListAthletesObserver(List list) { this.list = list; }
-    
-    public void update(Observable o, Object args) {
+    public void update(Observable m, Object args) {
+        ListAthletes o = (ListAthletes)m;
         switch(((Action)args).getAction()) {
-            case Action.UPD : chargerAthletes((ModeleListAthletes)o); break;
-            case Action.LOAD: remplireListe((ModeleListAthletes)o);
+            case Action.UPD : chargerAthletes(o); break;
+            case Action.LOAD: remplireListe(o);
         }
     }
     
-    private void chargerAthletes(ModeleListAthletes o) {
+    private void chargerAthletes(ListAthletes o) {
         o.chargerAthletes();
     }
     
-    private void remplireListe(ModeleListAthletes o) {
+    private void remplireListe(ListAthletes o) {
         int size = o.size();
         list.removeAll();
         for (int i = 0; i < size; i++) {
             list.add(o.get(i).toString());
         }
     }
-    
 }

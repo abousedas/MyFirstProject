@@ -4,9 +4,9 @@ import metier.*;
 import vue.*;
 
 public class FrmMain extends java.awt.Frame {
-    private ModeleListPays mListPays = new ModeleListPays();
-    private ModeleListDisciplines mListDisciplines = new ModeleListDisciplines();
-    private ModeleListAthletes mListAthletes = new ModeleListAthletes();
+    private ListPays listPays = new ListPays();
+    private ListDisciplines listDisciplines = new ListDisciplines();
+    private ListAthletes listAthletes = new ListAthletes();
             
     public FrmMain() {
         initComponents();
@@ -15,14 +15,15 @@ public class FrmMain extends java.awt.Frame {
     }
     
     private void initObservers() {
-        mListPays.addObserver(new ListPaysObserver(lstPays, mListAthletes));
-        mListDisciplines.addObserver(new ListDisciplineObserver(lstSports, mListAthletes));
-        mListAthletes.addObserver(new ListAthletesObserver(lstAthletes));
+        listPays.addObserver(new ListPaysObserver(lstPays, listAthletes));
+        listDisciplines.addObserver(new ListDisciplineObserver(lstSports, listAthletes));
+        listAthletes.addObserver(new ListAthletesObserver(lstAthletes));
+        listAthletes.addObserver(new ListAthletesDetails(tfNo, tfPrenom, tfNom, tfPays, tfSport));
     }
     
     private void loadData() {
-        mListPays.chargerDonnes();
-        mListDisciplines.chargerDonnes();
+        listPays.chargerDonnes();
+        listDisciplines.chargerDonnes();
     }
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -69,6 +70,11 @@ public class FrmMain extends java.awt.Frame {
         });
 
         lstAthletes.setName(""); // NOI18N
+        lstAthletes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lstAthletesItemStateChanged(evt);
+            }
+        });
 
         tfSport.setEditable(false);
 
@@ -131,12 +137,16 @@ public class FrmMain extends java.awt.Frame {
     }//GEN-LAST:event_formWindowClosed
 
     private void lstPaysItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstPaysItemStateChanged
-        mListPays.setPos(lstPays.getSelectedIndex());
+        listPays.setPos(lstPays.getSelectedIndex());
     }//GEN-LAST:event_lstPaysItemStateChanged
 
     private void lstSportsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstSportsItemStateChanged
-        mListDisciplines.setPos(lstSports.getSelectedIndex());
+        listDisciplines.setPos(lstSports.getSelectedIndex());
     }//GEN-LAST:event_lstSportsItemStateChanged
+
+    private void lstAthletesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstAthletesItemStateChanged
+        listAthletes.setPos(lstAthletes.getSelectedIndex());
+    }//GEN-LAST:event_lstAthletesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.List lstAthletes;

@@ -17,18 +17,18 @@ import domaine.*;
  */
 public class ListPaysObserver implements Observer {
     List list;
-    ModeleListAthletes mAthletes;
+    ListAthletes mAthletes;
     
-    public ListPaysObserver(List list, ModeleListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
+    public ListPaysObserver(List list, ListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
     
     public void update(Observable o, Object args) {
         switch(((Action)args).getAction()) {
-            case Action.LOAD: chargerPays((ModeleListPays)o); break;
-            case Action.SEL : selPays((ModeleListPays)o);
+            case Action.LOAD: chargerPays((ListPays)o); break;
+            case Action.SEL : selPays((ListPays)o);
         }
     }
     
-    private void chargerPays(ModeleListPays o) {
+    private void chargerPays(ListPays o) {
         int size = o.size();
         list.removeAll();
         for (int i = 0; i < size; i++) {
@@ -36,7 +36,7 @@ public class ListPaysObserver implements Observer {
         }
     }
     
-    private void selPays(ModeleListPays o) {
+    private void selPays(ListPays o) {
         Pays pays = o.get(o.getPos());
         mAthletes.setPaysCrt(pays);
     }
