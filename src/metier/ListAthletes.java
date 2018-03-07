@@ -27,12 +27,11 @@ public class ListAthletes extends ListeObjects {
     public void setPaysCrt(Pays pays) { 
         paysCrt = pays; 
         setChanged(); notifyObservers(new Action(Action.UPD));
-//        System.out.println("Pays select: " + pays.toString());
     }
     public void setSportCrt(Sport sport) { 
         sportCrt = sport; 
         setChanged(); notifyObservers(new Action(Action.UPD));
-//        System.out.println("Sport select: " + sport.toString());
+
     }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
