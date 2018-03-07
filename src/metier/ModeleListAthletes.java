@@ -21,19 +21,19 @@ public class ModeleListAthletes extends ListeObjects {
             super.aListe = dao.AthleteDao.getListeAthletes(paysCrt, sportCrt);
             setChanged(); notifyObservers(new Action(Action.LOAD));
         }
-        System.out.println(paysCrt);
-        System.out.println(sportCrt);
+        //System.out.println(paysCrt);
+        //System.out.println(sportCrt);
     }
     
     public void setPaysCrt(Pays pays) { 
         paysCrt = pays; 
         setChanged(); notifyObservers(new Action(Action.UPD));
-        System.out.println("Pays select: " + pays.toString());
+        //System.out.println("Pays select: " + pays.toString());
     }
     public void setSportCrt(Sport sport) { 
         sportCrt = sport; 
         setChanged(); notifyObservers(new Action(Action.UPD));
-        System.out.println("Sport select: " + sport.toString());
+        //System.out.println("Sport select: " + sport.toString());
     }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
