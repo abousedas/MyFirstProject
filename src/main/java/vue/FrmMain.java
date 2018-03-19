@@ -7,25 +7,25 @@ public class FrmMain extends java.awt.Frame {
     private ListPays listPays = new ListPays();
     private ListDisciplines listDisciplines = new ListDisciplines();
     private ListAthletes listAthletes = new ListAthletes();
-            
+
     public FrmMain() {
         initComponents();
         initObservers();
         loadData();
     }
-    
+
     private void initObservers() {
         listPays.addObserver(new ListPaysObserver(lstPays, listAthletes));
         listDisciplines.addObserver(new ListDisciplineObserver(lstSports, listAthletes));
         listAthletes.addObserver(new ListAthletesObserver(lstAthletes));
         listAthletes.addObserver(new ListAthletesDetails(tfNo, tfPrenom, tfNom, tfPays, tfSport));
     }
-    
+
     private void loadData() {
-        listPays.chargerDonnes();
-        listDisciplines.chargerDonnes();
+        // listPays.chargerDonnes();
+        // listDisciplines.chargerDonnes();
     }
-   
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
