@@ -6,6 +6,18 @@
    <artifactId>myfirstproject</artifactId>
    <version>0.0.1-SNAPSHOT</version>
    <build>
+
+	   <resources>
+		   <resource>
+			   <directory>src/main/resources</directory>
+			   <filtering>true</filtering>
+			   <includes>
+				   <include>**/*.properties</include>
+				   <include>**/*.xml</include>
+			   </includes>
+		   </resource>
+	   </resources>
+
 	   <plugins>
 		   <plugin>
 			   <groupId>org.apache.maven.plugins</groupId>
@@ -19,6 +31,33 @@
 				   </archive>
 			   </configuration>
 		   </plugin>
+
+		   <plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.2.4</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>validate-the-git-infos</id>
+						<goals>
+							<goal>validateRevision</goal>
+						</goals>
+						<phase>prepare-package</phase>
+					</execution>
+				</executions>
+
+				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+				</configuration>
+			</plugin>
+
 	   </plugins>
    </build>
 </project>
