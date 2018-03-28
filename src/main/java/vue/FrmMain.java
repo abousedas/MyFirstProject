@@ -1,9 +1,10 @@
 package vue;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.Properties;
 import metier.*;
-import vue.*;
 
 public class FrmMain extends java.awt.Frame {
     private ListPays listPays = new ListPays();
@@ -25,8 +26,8 @@ public class FrmMain extends java.awt.Frame {
     }
 
     private void loadData() {
-         listPays.chargerDonnes();
-         listDisciplines.chargerDonnes();
+//         listPays.chargerDonnes();
+//         listDisciplines.chargerDonnes();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,11 +182,13 @@ public class FrmMain extends java.awt.Frame {
     // End of variables declaration//GEN-END:variables
 
     private void loadVersion() {
+        Properties properties = new Properties();
         String version = "N/A";
         try {
             InputStream stream = new FileInputStream("application.properties");
-//            properties.load(stream);
-//            version = properties.getProperty("application.version");
+            properties.load(stream);
+            version = properties.getProperty("version");
+//            System.out.println(version);
         } catch (Exception e) { e.printStackTrace(); }
         lblVersionNbr.setText(version);
     }
