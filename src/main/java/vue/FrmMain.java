@@ -1,5 +1,7 @@
 package vue;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import metier.*;
 import vue.*;
 
@@ -10,6 +12,7 @@ public class FrmMain extends java.awt.Frame {
 
     public FrmMain() {
         initComponents();
+        loadVersion();
         initObservers();
         loadData();
     }
@@ -37,6 +40,8 @@ public class FrmMain extends java.awt.Frame {
         lstSports = new java.awt.List();
         lstAthletes = new java.awt.List();
         tfSport = new java.awt.TextField();
+        lblVersionTxt = new java.awt.Label();
+        lblVersionNbr = new java.awt.Label();
 
         setTitle("Liste des Athlètes aux JO 2018");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -78,14 +83,22 @@ public class FrmMain extends java.awt.Frame {
 
         tfSport.setEditable(false);
 
+        lblVersionTxt.setText("Version");
+
+        lblVersionNbr.setText("1.0.0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                        .addComponent(lblVersionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(lblVersionNbr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
                         .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -95,7 +108,6 @@ public class FrmMain extends java.awt.Frame {
                             .addComponent(tfNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lstPays, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lstSports, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -103,7 +115,7 @@ public class FrmMain extends java.awt.Frame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lstPays, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
@@ -122,9 +134,16 @@ public class FrmMain extends java.awt.Frame {
                         .addComponent(tfSport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblVersionNbr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVersionTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lblVersionNbr.getAccessibleContext().setAccessibleName("lblVersionNbr");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,6 +168,8 @@ public class FrmMain extends java.awt.Frame {
     }//GEN-LAST:event_lstAthletesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label lblVersionNbr;
+    private java.awt.Label lblVersionTxt;
     private java.awt.List lstAthletes;
     private java.awt.List lstPays;
     private java.awt.List lstSports;
@@ -158,4 +179,14 @@ public class FrmMain extends java.awt.Frame {
     private java.awt.TextField tfPrenom;
     private java.awt.TextField tfSport;
     // End of variables declaration//GEN-END:variables
+
+    private void loadVersion() {
+        String version = "N/A";
+        try {
+            InputStream stream = new FileInputStream("application.properties");
+//            properties.load(stream);
+//            version = properties.getProperty("application.version");
+        } catch (Exception e) { e.printStackTrace(); }
+        lblVersionNbr.setText(version);
+    }
 }
