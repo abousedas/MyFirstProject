@@ -26,8 +26,8 @@ public class FrmMain extends java.awt.Frame {
     }
 
     private void loadData() {
-//         listPays.chargerDonnes();
-//         listDisciplines.chargerDonnes();
+        listPays.chargerDonnes();
+        listDisciplines.chargerDonnes();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -185,10 +185,9 @@ public class FrmMain extends java.awt.Frame {
         Properties properties = new Properties();
         String version = "N/A";
         try {
-            InputStream stream = new FileInputStream("application.properties");
-            properties.load(stream);
-            version = properties.getProperty("version");
-//            System.out.println(version);
+//            InputStream stream = new FileInputStream("application.properties");
+//            properties.load(stream);
+//            version = properties.getProperty("version");
         } catch (Exception e) { e.printStackTrace(); }
         lblVersionNbr.setText(version);
     }
