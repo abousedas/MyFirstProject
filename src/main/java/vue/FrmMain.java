@@ -98,8 +98,8 @@ public class FrmMain extends java.awt.Frame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblVersionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(lblVersionNbr, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
+                        .addComponent(lblVersionNbr, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
                         .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -188,6 +188,10 @@ public class FrmMain extends java.awt.Frame {
 //            InputStream stream = new FileInputStream("application.properties");
 //            properties.load(stream);
 //            version = properties.getProperty("version");
+            InputStream stream = getClass().getClassLoader().getResourceAsStream("application.properties");
+            properties.load(stream);
+            version = properties.getProperty("version");
+            System.out.println(version);
         } catch (Exception e) { e.printStackTrace(); }
         lblVersionNbr.setText(version);
     }
