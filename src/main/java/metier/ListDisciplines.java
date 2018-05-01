@@ -5,6 +5,8 @@
  */
 package metier;
 
+import dao.FileReader;
+import dao.SportDao;
 import domaine.Sport;
 
 /**
@@ -12,8 +14,11 @@ import domaine.Sport;
  * @author samyabouseda
  */
 public class ListDisciplines extends ListeObjects {
+    
+    private SportDao sportDao = new SportDao(new FileReader());
+    
     public void chargerDonnes() {
-        super.aListe = dao.SportDao.getListeSports();
+        super.aListe = sportDao.getListeSports();
         setChanged(); notifyObservers(new Action(Action.LOAD));
     }
     
