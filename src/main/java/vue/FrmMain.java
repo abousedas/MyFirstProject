@@ -185,9 +185,6 @@ public class FrmMain extends java.awt.Frame {
         Properties properties = new Properties();
         String version = "N/A";
         try {
-//            InputStream stream = new FileInputStream("application.properties");
-//            properties.load(stream);
-//            version = properties.getProperty("version");
             InputStream stream = getClass().getClassLoader().getResourceAsStream("application.properties");
             properties.load(stream);
             version = properties.getProperty("version");

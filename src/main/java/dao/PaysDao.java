@@ -3,15 +3,15 @@ package dao;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import domaine.Pays;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class PaysDao {
 
-    private static final String FICHIER_PAYS = "Pays.txt";
+    private final FileReader reader;
+    
+    public PaysDao(FileReader reader) { this.reader=reader; }
 
-    public static ArrayList getListePays() {
-        String[] tabPays = outils.FileStr.read(FICHIER_PAYS);
+    public ArrayList getListePays() {
+        String[] tabPays = reader.read();
         ArrayList aLst = new ArrayList();
         for (int i = 0; i < tabPays.length; i++) {
             StringTokenizer strT = new StringTokenizer(tabPays[i], ";");

@@ -5,6 +5,8 @@
  */
 package metier;
 
+import dao.FileReader;
+import dao.PaysDao;
 import domaine.Pays;
 
 /**
@@ -12,8 +14,11 @@ import domaine.Pays;
  * @author samyabouseda
  */
 public class ListPays extends ListeObjects {
+    
+    private PaysDao paysDao = new PaysDao(new FileReader());
+    
     public void chargerDonnes() {
-        super.aListe = dao.PaysDao.getListePays();
+        super.aListe = paysDao.getListePays();
         setChanged(); notifyObservers(new Action(Action.LOAD));
     }
     

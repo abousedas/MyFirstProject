@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package metier;
+
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
@@ -31,7 +27,6 @@ public class ListAthletes extends ListeObjects {
     public void setSportCrt(Sport sport) { 
         sportCrt = sport; 
         setChanged(); notifyObservers(new Action(Action.UPD));
-
     }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
