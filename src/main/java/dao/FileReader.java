@@ -13,7 +13,12 @@ import outils.FileStr;
  */
 public class FileReader {
     
-    private static final String FICHIER_PAYS = "Pays.txt";
+    private String file = null;
     
-    public String[] read() { return FileStr.read(FICHIER_PAYS); }
+    public void setFile(String file) { this.file=file; }
+    
+    public String[] read() { 
+        if (file != null) { return FileStr.read(file); }
+        return null;
+    }
 }

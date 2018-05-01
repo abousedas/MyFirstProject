@@ -8,7 +8,7 @@ public class PaysDao {
 
     private final FileReader reader;
     
-    public PaysDao(FileReader reader) { this.reader=reader; }
+    public PaysDao(FileReader reader) { this.reader=reader; reader.setFile("Pays.txt"); }
 
     public ArrayList getListePays() {
         String[] tabPays = reader.read();
