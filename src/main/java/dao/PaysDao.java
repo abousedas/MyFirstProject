@@ -5,10 +5,11 @@ import java.util.StringTokenizer;
 import domaine.Pays;
 
 public class PaysDao {
-
+        
+    private static final String FICHIER_PAYS = "Pays.txt";
     private final FileReader reader;
     
-    public PaysDao(FileReader reader) { this.reader=reader; reader.setFile("Pays.txt"); }
+    public PaysDao(FileReader reader) { this.reader=reader; reader.setFile(FICHIER_PAYS); }
 
     public ArrayList getListePays() {
         String[] tabPays = reader.read();
