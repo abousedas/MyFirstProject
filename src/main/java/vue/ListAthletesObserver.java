@@ -20,7 +20,7 @@ import metier.ListAthletes;
 public class ListAthletesObserver implements Observer {
     List list;
     public ListAthletesObserver(List list) { 
-        this.list=list;;
+        this.list=list;
     }
     
     public void update(Observable m, Object args) {
