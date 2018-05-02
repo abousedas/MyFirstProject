@@ -101,4 +101,36 @@ public class AthleteDaoTest {
         }
     }
     
+    @Test
+    public void should_return_empty_list_when_arrguments_not_exist() {
+        Pays pays = new Pays(55555);
+        Sport sport = new Sport(44444);
+        when(reader.read()).thenReturn(new String[] { 
+            "70;6;19;Adam;ROSEN",
+            "70;6;2348;Rupert;STAUDINGER"
+        });
+        List athletes = dao.getListeAthletes(pays, sport);
+        assertThat(athletes).isEmpty();
+    }
+    
+    @Test
+    public void should_return_empty_list_when_pays_not_exist() {
+        when(reader.read()).thenReturn(new String[] { 
+            "55555;6;19;Adam;ROSEN",
+            "55555;6;2348;Rupert;STAUDINGER"
+        });
+        List athletes = dao.getListeAthletes(pays, sport);
+        assertThat(athletes).isEmpty();
+    }
+    
+    @Test
+    public void should_return_empty_list_when_sport_not_exist() {
+        when(reader.read()).thenReturn(new String[] { 
+            "70;44444;19;Adam;ROSEN",
+            "70;44444;2348;Rupert;STAUDINGER"
+        });
+        List athletes = dao.getListeAthletes(pays, sport);
+        assertThat(athletes).isEmpty();
+    }
+    
 }
