@@ -24,9 +24,6 @@ public class AthleteDaoTest {
     protected void setUp() {
         reader = mock(FileReader.class);
         dao = new AthleteDao(reader);
-        //Dans l'ideal mocker ces deux classes...mais comment faire pour les stub correctement ?
-        //pays = mock(Pays.class);
-        //sport = mock(Sport.class);
         pays = new Pays(70);
         sport = new Sport(6);
     }
