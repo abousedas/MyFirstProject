@@ -19,9 +19,7 @@ public class ListPaysObserverTest {
     
     @BeforeTest
     protected void setUp() {
-        listGUI = mock(List.class);
         listAthletes = mock(ListAthletes.class);
-        action = mock(Action.class);
         observer = new ListPaysObserver(listGUI, listAthletes);
     }
 }

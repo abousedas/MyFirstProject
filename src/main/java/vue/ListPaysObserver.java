@@ -22,7 +22,11 @@ public class ListPaysObserver implements Observer {
     public ListPaysObserver(List list, ListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
     
     public void update(Observable o, Object args) {
-        switch(((Action)args).getAction()) {
+        if (args instanceof Action) { update(o, (Action)args); }
+    }
+    
+    private void update(Observable o, Action args) {
+        switch(args.getAction()) {
             case Action.LOAD: chargerPays((ListPays)o); break;
             case Action.SEL : selPays((ListPays)o);
         }
