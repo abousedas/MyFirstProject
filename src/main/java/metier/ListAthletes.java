@@ -11,8 +11,8 @@ import domaine.Sport;
  * @author samyabouseda
  */
 public class ListAthletes extends ListeObjects {
-    Pays paysCrt;
-    Sport sportCrt;
+    private Pays paysCrt;
+    private Sport sportCrt;
     
     private AthleteDao athleteDao = new AthleteDao(new FileReader());
     
@@ -32,6 +32,10 @@ public class ListAthletes extends ListeObjects {
         sportCrt = sport; 
         setChanged(); notifyObservers(new Action(Action.UPD));
     }
+    
+    public Pays getPaysCrt() { return paysCrt; }
+    
+    public Sport getSportCrt() { return sportCrt; }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
     public Athlete get(int pos) {
