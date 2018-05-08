@@ -1,5 +1,6 @@
 package metier;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ArrayList;
@@ -42,5 +43,9 @@ abstract class ListeObjects extends Observable {
     protected Object get(int pos) {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return aListe.get(pos);
+    }
+    
+    public List getList() {
+        return (List)aListe.clone();
     }
 }
