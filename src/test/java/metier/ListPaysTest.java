@@ -9,6 +9,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import vue.ListPaysObserver;
 
 /**
  *
@@ -18,11 +19,24 @@ public class ListPaysTest {
     
     private ListPays listPays;
     private PaysDao dao;
+    private ListPaysObserver observer;
+    private ListAthletes listAthletes;
+    private java.awt.List listGUI;
     
     @BeforeTest
     protected void setUp() {
+        listGUI = new java.awt.List();
+        listAthletes = new ListAthletes();
         listPays = new ListPays();
         dao = mock(PaysDao.class);
+        observer = new ListPaysObserver(listGUI, listAthletes);
+    }
+    
+    @Test
+    public void should_return_observer_if_is_not_null() {
+        listPays = new ListPays(observer);
+        int nbOfObservers = listPays.countObservers();
+        assertThat(nbOfObservers).isGreaterThan(0);
     }
     
     @Test
@@ -56,6 +70,12 @@ public class ListPaysTest {
          *  isNotEmpty,
          *  hasSize(1).
          */
+    }
+    
+    @Test
+    public void should_return_null_if_pos_is_not_set() {
+        Pays pays = listPays.get();
+        assertThat(pays).isNull();
     }
     
     @Test 

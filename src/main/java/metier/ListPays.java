@@ -8,6 +8,7 @@ package metier;
 import dao.FileReader;
 import dao.PaysDao;
 import domaine.Pays;
+import java.util.Observer;
 
 /**
  *
@@ -16,6 +17,9 @@ import domaine.Pays;
 public class ListPays extends ListeObjects {
     
     private PaysDao paysDao = new PaysDao(new FileReader());
+    
+    public ListPays() { super(); }
+    public ListPays(Observer obs) { super(obs); }
     
     public void chargerDonnes() {
         super.aListe = paysDao.getListePays();
@@ -27,6 +31,8 @@ public class ListPays extends ListeObjects {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Pays)super.get(pos);
     }
+    
+    public Pays get() {return (Pays)super.get();  } 
     
     public int size() { return super.size(); }
 }
