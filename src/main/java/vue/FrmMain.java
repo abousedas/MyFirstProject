@@ -10,6 +10,7 @@ public class FrmMain extends java.awt.Frame {
     private ListPays listPays = new ListPays();
     private ListDisciplines listDisciplines = new ListDisciplines();
     private ListAthletes listAthletes = new ListAthletes();
+    private String version = null;
 
     public FrmMain() {
         initComponents();
@@ -183,7 +184,7 @@ public class FrmMain extends java.awt.Frame {
 
     private void loadVersion() {
         Properties properties = new Properties();
-        String version = "N/A";
+        version = "N/A";
         try {
             InputStream stream = getClass().getClassLoader().getResourceAsStream("application.properties");
             properties.load(stream);
@@ -191,5 +192,10 @@ public class FrmMain extends java.awt.Frame {
             System.out.println(version);
         } catch (Exception e) { e.printStackTrace(); }
         lblVersionNbr.setText(version);
+    }
+    
+    public String getVersion() {
+        if(version != null) { return version; }
+        return "N/A";
     }
 }
