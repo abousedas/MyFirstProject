@@ -20,7 +20,7 @@ public class FrmMain extends java.awt.Frame {
 
     private void initObservers() {
         listPays.addObserver(new ListPaysObserver(lstPays, listAthletes));
-        listDisciplines.addObserver(new ListDisciplineObserver(lstSports, listAthletes));
+        listDisciplines.addObserver(new ListDisciplinesObserver(lstSports, listAthletes));
         listAthletes.addObserver(new ListAthletesObserver(lstAthletes));
         listAthletes.addObserver(new ListAthletesDetails(tfNo, tfPrenom, tfNom, tfPays, tfSport));
     }

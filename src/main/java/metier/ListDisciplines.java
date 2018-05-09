@@ -27,4 +27,6 @@ public class ListDisciplines extends ListeObjects {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Sport)super.get(pos);
     }
+    
+    public int size() { return super.size(); }
 }
