@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListAthletes.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">myfirstproject</a> &gt; <a href="index.source.html" class="el_package">metier</a> &gt; <span class="el_source">ListAthletes.java</span></div><h1>ListAthletes.java</h1><pre class="source lang-java linenums">package metier;
+
+import dao.AthleteDao;
+import dao.FileReader;
+import domaine.Athlete;
+import domaine.Pays;
+import domaine.Sport;
+
+/**
+ *
+ * @author samyabouseda
+ */
+<span class="fc" id="L13">public class ListAthletes extends ListeObjects {</span>
+    private Pays paysCrt;
+    private Sport sportCrt;
+    
+<span class="fc" id="L17">    private AthleteDao athleteDao = new AthleteDao(new FileReader());</span>
+    
+    public void chargerAthletes() {
+<span class="fc" id="L20">        this.setPos(NO_POS);</span>
+<span class="pc bpc" id="L21" title="2 of 4 branches missed.">        if (paysCrt != null &amp;&amp; sportCrt != null) {</span>
+<span class="fc" id="L22">            super.aListe = athleteDao.getListeAthletes(paysCrt, sportCrt);</span>
+<span class="fc" id="L23">            setChanged(); notifyObservers(new Action(Action.LOAD));</span>
+        }
+<span class="fc" id="L25">    }</span>
+    
+    public void setPaysCrt(Pays pays) { 
+<span class="fc" id="L28">        paysCrt = pays; </span>
+<span class="fc" id="L29">        setChanged(); notifyObservers(new Action(Action.UPD));</span>
+<span class="fc" id="L30">    }</span>
+    public void setSportCrt(Sport sport) { 
+<span class="fc" id="L32">        sportCrt = sport; </span>
+<span class="fc" id="L33">        setChanged(); notifyObservers(new Action(Action.UPD));</span>
+<span class="fc" id="L34">    }</span>
+    
+<span class="fc" id="L36">    public Pays getPaysCrt() { return paysCrt; }</span>
+    
+<span class="fc" id="L38">    public Sport getSportCrt() { return sportCrt; }</span>
+    
+    /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    public Athlete get(int pos) {
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        if (pos &lt; 0 || pos &gt;= aListe.size()) { return null; }</span>
+<span class="fc" id="L43">        return (Athlete)super.get(pos);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
