@@ -3,13 +3,12 @@ package vue;
 import domaine.Pays;
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import metier.Action;
 import metier.ListAthletes;
 import metier.ListPays;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -25,9 +24,12 @@ public class ListPaysObserverTest {
     private ListPays listPays;
     private Action action;
     
+    private Logger logger;
+    
     @BeforeTest
     protected void setUp() {
-        listAthletes = mock(ListAthletes.class);
+        logger = Logger.getLogger(ListPaysObserverTest.class.getName());
+        listAthletes = new ListAthletes();
         listPays = new ListPays();
         listAthletes = new ListAthletes();
         listGUI = new List();
@@ -49,6 +51,15 @@ public class ListPaysObserverTest {
         observer.update(listPays, action);
         int size = listGUI.getItemCount();
         assertThat(size).isGreaterThan(0);
+    }
+    
+    @Test
+    public void should_have_paysCrt_if_action_received_is_sel() {
+        listPays.setPos(0);
+        action = new Action(Action.SEL, listPays.getPos());
+        observer.update(listPays, action);
+        Pays paysCrt = listAthletes.getPaysCrt();
+        assertThat(paysCrt).isNotNull();
     }
     
 }
