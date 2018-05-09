@@ -3,12 +3,10 @@ package vue;
 import domaine.Pays;
 import java.awt.List;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import metier.Action;
 import metier.ListAthletes;
 import metier.ListPays;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -24,11 +22,8 @@ public class ListPaysObserverTest {
     private ListPays listPays;
     private Action action;
     
-    private Logger logger;
-    
     @BeforeTest
     protected void setUp() {
-        logger = Logger.getLogger(ListPaysObserverTest.class.getName());
         listAthletes = new ListAthletes();
         listPays = new ListPays();
         listAthletes = new ListAthletes();
