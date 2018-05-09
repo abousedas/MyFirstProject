@@ -12,7 +12,6 @@ import java.util.Observer;
 import metier.Action;
 import metier.ListAthletes;
 import metier.ListDisciplines;
-import metier.ListPays;
 
 /**
  *
@@ -25,7 +24,11 @@ public class ListDisciplinesObserver implements Observer {
     public ListDisciplinesObserver(List list, ListAthletes mAthletes) { this.list = list; this.mAthletes = mAthletes; }
     
     public void update(Observable o, Object args) {
-        switch(((Action)args).getAction()) {
+        if (args instanceof Action) { update(o, (Action)args); }
+    }
+
+    private void update(Observable o, Action args) {
+        switch(args.getAction()) {
             case Action.LOAD: chargerDisciplines((ListDisciplines)o); break;
             case Action.SEL : selSport((ListDisciplines)o); break;
         }

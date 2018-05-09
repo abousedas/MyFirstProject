@@ -42,5 +42,5 @@ public class ListAthletes extends ListeObjects {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Athlete)super.get(pos);
     }
-
+    
 }
