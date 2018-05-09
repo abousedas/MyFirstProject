@@ -8,26 +8,32 @@ package metier;
 import dao.FileReader;
 import dao.PaysDao;
 import domaine.Pays;
+import java.util.Observer;
 
 /**
  *
  * @author samyabouseda
  */
-<span class="fc" id="L16">public class ListPays extends ListeObjects {</span>
+public class ListPays extends ListeObjects {
     
-<span class="fc" id="L18">    private PaysDao paysDao = new PaysDao(new FileReader());</span>
+<span class="fc" id="L19">    private PaysDao paysDao = new PaysDao(new FileReader());</span>
+    
+<span class="fc" id="L21">    public ListPays() { super(); }</span>
+<span class="fc" id="L22">    public ListPays(Observer obs) { super(obs); }</span>
     
     public void chargerDonnes() {
-<span class="fc" id="L21">        super.aListe = paysDao.getListePays();</span>
-<span class="fc" id="L22">        setChanged(); notifyObservers(new Action(Action.LOAD));</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L25">        super.aListe = paysDao.getListePays();</span>
+<span class="fc" id="L26">        setChanged(); notifyObservers(new Action(Action.LOAD));</span>
+<span class="fc" id="L27">    }</span>
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
     public Pays get(int pos) {
-<span class="pc bpc" id="L27" title="1 of 4 branches missed.">        if (pos &lt; 0 || pos &gt;= aListe.size()) { return null; }</span>
-<span class="fc" id="L28">        return (Pays)super.get(pos);</span>
+<span class="pc bpc" id="L31" title="1 of 4 branches missed.">        if (pos &lt; 0 || pos &gt;= aListe.size()) { return null; }</span>
+<span class="fc" id="L32">        return (Pays)super.get(pos);</span>
     }
     
-<span class="fc" id="L31">    public int size() { return super.size(); }</span>
+<span class="fc" id="L35">    public Pays get() {return (Pays)super.get();  } </span>
+    
+<span class="fc" id="L37">    public int size() { return super.size(); }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

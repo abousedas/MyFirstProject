@@ -14,10 +14,10 @@ abstract class ListeObjects extends Observable {
 
     protected ArrayList aListe;             /* Liste des Objects */
     public static final int NO_POS = -1;    /* Valeur de la position courante non définie */
-<span class="pc" id="L17">    private int posCrt = NO_POS;            /* La position courante: initialement, pas de position courante */</span>
+<span class="fc" id="L17">    private int posCrt = NO_POS;            /* La position courante: initialement, pas de position courante */</span>
     
 <span class="fc" id="L19">    protected ListeObjects() {}</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">    protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">    protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }</span>
 
     /** Retourne le nombre d'Objects de la liste. */
 <span class="fc" id="L23">    public int size() { return aListe.size(); }</span>
@@ -35,8 +35,8 @@ abstract class ListeObjects extends Observable {
 
     /** Retourne l'Object courant, null si la position courante n'est pas correctement définie. */
     protected Object get() {
-<span class="nc bnc" id="L38" title="All 4 branches missed.">        if (posCrt &lt; 0 || posCrt &gt;= aListe.size()) { return null; }</span>
-<span class="nc" id="L39">        return aListe.get(posCrt);</span>
+<span class="pc bpc" id="L38" title="1 of 4 branches missed.">        if (posCrt &lt; 0 || posCrt &gt;= aListe.size()) { return null; }</span>
+<span class="fc" id="L39">        return aListe.get(posCrt);</span>
     }
 
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
