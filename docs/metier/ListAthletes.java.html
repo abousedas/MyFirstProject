@@ -18,7 +18,7 @@ import domaine.Sport;
     
     public void chargerAthletes() {
 <span class="fc" id="L20">        this.setPos(NO_POS);</span>
-<span class="pc bpc" id="L21" title="2 of 4 branches missed.">        if (paysCrt != null &amp;&amp; sportCrt != null) {</span>
+<span class="pc bpc" id="L21" title="1 of 4 branches missed.">        if (paysCrt != null &amp;&amp; sportCrt != null) {</span>
 <span class="fc" id="L22">            super.aListe = athleteDao.getListeAthletes(paysCrt, sportCrt);</span>
 <span class="fc" id="L23">            setChanged(); notifyObservers(new Action(Action.LOAD));</span>
         }

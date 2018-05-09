@@ -1,12 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListAthletesDetails.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">myfirstproject</a> &gt; <a href="index.source.html" class="el_package">vue</a> &gt; <span class="el_source">ListAthletesDetails.java</span></div><h1>ListAthletesDetails.java</h1><pre class="source lang-java linenums">/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package vue;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListAthletesDetails.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">myfirstproject</a> &gt; <a href="index.source.html" class="el_package">vue</a> &gt; <span class="el_source">ListAthletesDetails.java</span></div><h1>ListAthletesDetails.java</h1><pre class="source lang-java linenums">package vue;
 
 import domaine.Athlete;
-import java.awt.List;
 import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
@@ -18,40 +12,46 @@ import metier.ListAthletes;
  * @author samyabouseda
  */
 public class ListAthletesDetails implements Observer {
-    TextField no, prenom, nom, natio, sport;
-<span class="nc" id="L22">    public ListAthletesDetails(TextField no, TextField prenom, TextField nom, TextField natio, TextField sport) { </span>
-<span class="nc" id="L23">        this.no=no; this.prenom=prenom; this.nom=nom; this.natio=natio; this.sport=sport;</span>
-<span class="nc" id="L24">    }</span>
     
-    public void update(Observable m, Object args) {
-<span class="nc" id="L27">        ListAthletes o = (ListAthletes)m;</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        switch(((Action)args).getAction()) {</span>
+    private TextField no, prenom, nom, natio, sport;
+    
+<span class="fc" id="L18">    public ListAthletesDetails(TextField no, TextField prenom, TextField nom, TextField natio, TextField sport) { </span>
+<span class="fc" id="L19">        this.no=no; this.prenom=prenom; this.nom=nom; this.natio=natio; this.sport=sport;</span>
+<span class="fc" id="L20">    }</span>
+    
+    public void update(Observable o, Object args) {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (args instanceof Action) { update(o, (Action)args); }</span>
+<span class="fc" id="L24">    }</span>
+    
+    private void update(Observable m, Action args) {
+<span class="fc" id="L27">        ListAthletes o = (ListAthletes)m;</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        switch(((Action)args).getAction()) {</span>
             case Action.SEL : 
-<span class="nc" id="L30">                int posCrt = ((Action)args).getPos();</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                if (posCrt != -1){ remplireChamps(posCrt, o); }</span>
-<span class="nc" id="L32">                else {viderChamps();}</span>
+<span class="fc" id="L30">                int posCrt = ((Action)args).getPos();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                if (posCrt != -1){ remplireChamps(posCrt, o); }</span>
+<span class="fc" id="L32">                else {viderChamps();}</span>
                 break;
         }
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L35">    }</span>
     
     private void remplireChamps(int posCrt, ListAthletes o) {
-<span class="nc" id="L38">        Athlete a = o.get(posCrt);</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (a != null) { </span>
-<span class="nc" id="L40">            this.no.setText(String.valueOf(a.getNo()));</span>
-<span class="nc" id="L41">            this.prenom.setText(a.getPrenom());</span>
-<span class="nc" id="L42">            this.nom.setText(a.getNom());</span>
-<span class="nc" id="L43">            this.natio.setText(a.getPays().toString());</span>
-<span class="nc" id="L44">            this.sport.setText(a.getSport().toString());</span>
+<span class="fc" id="L38">        Athlete a = o.get(posCrt);</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (a != null) { </span>
+<span class="fc" id="L40">            this.no.setText(String.valueOf(a.getNo()));</span>
+<span class="fc" id="L41">            this.prenom.setText(a.getPrenom());</span>
+<span class="fc" id="L42">            this.nom.setText(a.getNom());</span>
+<span class="fc" id="L43">            this.natio.setText(a.getPays().toString());</span>
+<span class="fc" id="L44">            this.sport.setText(a.getSport().toString());</span>
         }
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L46">    }</span>
     
     protected void viderChamps(){
-<span class="nc" id="L49">        this.no.setText(&quot;&quot;);</span>
-<span class="nc" id="L50">        this.prenom.setText(&quot;&quot;);</span>
-<span class="nc" id="L51">        this.nom.setText(&quot;&quot;);</span>
-<span class="nc" id="L52">        this.natio.setText(&quot;&quot;);</span>
-<span class="nc" id="L53">        this.sport.setText(&quot;&quot;);</span>
-<span class="nc" id="L54">    }</span>
+<span class="fc" id="L49">        this.no.setText(&quot;&quot;);</span>
+<span class="fc" id="L50">        this.prenom.setText(&quot;&quot;);</span>
+<span class="fc" id="L51">        this.nom.setText(&quot;&quot;);</span>
+<span class="fc" id="L52">        this.natio.setText(&quot;&quot;);</span>
+<span class="fc" id="L53">        this.sport.setText(&quot;&quot;);</span>
+<span class="fc" id="L54">    }</span>
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

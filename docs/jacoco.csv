@@ -12,12 +12,12 @@ myfirstproject,vue,ListPaysObserver,0,62,1,6,0,15,1,8,0,5
 myfirstproject,vue,ListDisciplinesObserver,0,62,1,6,0,15,1,8,0,5
 myfirstproject,vue,FrmMain.new ItemListener() {...},11,0,0,0,3,0,2,0,2,0
 myfirstproject,vue,FrmMain.new ItemListener() {...},11,0,0,0,3,0,2,0,2,0
-myfirstproject,vue,ListAthletesDetails,96,0,6,0,23,0,7,0,4,0
+myfirstproject,vue,ListAthletesDetails,0,103,2,6,0,25,2,7,0,5
 myfirstproject,domaine,Pays,0,40,0,2,0,7,0,8,0,7
 myfirstproject,domaine,Sport,0,33,0,2,0,6,0,7,0,6
-myfirstproject,domaine,Athlete,28,28,0,2,6,2,6,3,6,2
+myfirstproject,domaine,Athlete,13,43,0,2,1,7,1,8,1,7
 myfirstproject,metier,ListDisciplines,0,42,1,3,0,8,1,5,0,4
 myfirstproject,metier,ListPays,0,42,1,3,0,8,1,5,0,4
-myfirstproject,metier,ListAthletes,0,82,3,5,0,17,3,8,0,7
+myfirstproject,metier,ListAthletes,0,82,2,6,0,17,2,9,0,7
 myfirstproject,metier,Action,0,22,0,0,0,5,0,4,0,4
 myfirstproject,metier,ListeObjects,31,56,10,6,3,11,9,7,2,6
