@@ -20,13 +20,13 @@ abstract class ListeObjects extends Observable {
     protected ListeObjects(Observer obs) { if (obs != null) { addObserver(obs); } }
 
     /** Retourne le nombre d'Objects de la liste. */
-    public final int size() { return aListe.size(); }
+    public int size() { return aListe.size(); }
 
     /** Retourne la position courante. NO_POS s'il n'y en a pas. */
-    public final int getPos() { return posCrt; }
+    public int getPos() { return posCrt; }
 
     /** Définit la position courante. NO_POS signifie qu'il n'y en a pas. */
-    public final void setPos(int pos) {
+    public void setPos(int pos) {
         if (pos != posCrt) {
             posCrt = (pos >= 0 && pos < aListe.size()) ? pos : NO_POS;
             setChanged(); notifyObservers(new Action(Action.SEL, posCrt));

@@ -27,4 +27,6 @@ public class ListPays extends ListeObjects {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Pays)super.get(pos);
     }
+    
+    public int size() { return super.size(); }
 }
