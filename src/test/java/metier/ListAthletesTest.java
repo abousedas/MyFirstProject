@@ -4,11 +4,9 @@ import dao.AthleteDao;
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
-import java.util.ArrayList;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -49,14 +47,11 @@ public class ListAthletesTest {
     
     @Test
     public void should_not_fill_list_when_list_of_athletes_is_empty() {
-        listAthletes.setPaysCrt(pays);
+        listAthletes.setPaysCrt(new Pays(1212121));
         listAthletes.setSportCrt(sport);
-        when(dao.getListeAthletes(pays, sport)).thenReturn(new ArrayList());
         listAthletes.chargerAthletes();
-        List sports = listAthletes.getList();
-        /**
-         * Here we need to test if sport isEmpty.
-         */
+        List athletes = listAthletes.getList();
+        assertThat(athletes).isEmpty();
     }
     
     @Test 
@@ -67,6 +62,8 @@ public class ListAthletesTest {
     
     @Test 
     public void should_return_athlete_if_pos_is_valide() {
+        listAthletes.setSportCrt(sport);
+        listAthletes.setPaysCrt(pays);
         listAthletes.chargerAthletes();
         Athlete athlete = (Athlete)listAthletes.get(0);
         assertThat(athlete).isNotNull();
