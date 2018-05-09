@@ -48,7 +48,7 @@ public class ListDisciplinesObserverTest {
     }
     
     @Test
-    public void should_have_paysCrt_if_action_received_is_sel() {
+    public void should_have_sportCrt_if_action_received_is_sel() {
         listDisciplines.setPos(0);
         action = new Action(Action.SEL, listDisciplines.getPos());
         observer.update(listDisciplines, action);
