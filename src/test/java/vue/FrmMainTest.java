@@ -21,11 +21,4 @@ public class FrmMainTest {
     public void should_not_be_null_after_initialisation() {
         assertThat(frmMain).isNotNull();
     }
-    
-    @Test
-    public void should_update_the_version_textField_with_version_number() {
-        String version = frmMain.getVersion();
-        assertThat(version).isNotNull();
-        assertThat(version).isNotEmpty();
-    }
 }
