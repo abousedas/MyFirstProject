@@ -16,8 +16,10 @@ public class Athlete {
     public Pays getPays() { return pays; }
     public Sport getSport() { return sport; }
     
+    @Override
     public boolean equals(Object obj) { return this.no == ((Athlete)obj).no; }
+    @Override
     public String toString() { 
-        if(prenom == null && nom == null) { return ""; }
+        if(prenom == null && nom == null) { return null; }
         return prenom+" "+nom; }
 }
