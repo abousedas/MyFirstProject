@@ -5,7 +5,7 @@ public class Sport {
     private String nom;
     
     public Sport(int no, String nom) { this.no=no; this.nom=nom; }
-    public Sport(int no) { this(no, ""); }
+    public Sport(int no) { this(no, null); }
     
     public int getNo() { return no; }
     public String getNom() { return nom; }
