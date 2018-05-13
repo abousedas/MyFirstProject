@@ -69,4 +69,10 @@ public class ListAthletesDetailsTest {
         assertThat(tfNatio.getText()).isEmpty();
         assertThat(tfSport.getText()).isEmpty();
     }
+    
+    @Test
+    public void textFields_should_be_cleared_if_pos_received_after_being_filled_is_negative() {
+        textFields_should_be_filled_with_details_if_action_received_is_sel();
+        textFields_should_be_empty_if_pos_received_is_negative();
+    }
 }
