@@ -57,4 +57,12 @@ public class ListPaysObserverTest {
         assertThat(paysCrt).isNotNull();
     }
     
+    @Test
+    public void should_only_contain_unique_instance_of_pays() {
+        action = new Action(Action.LOAD);
+        observer.update(listPays, action);
+        java.util.List list = listPays.getList();
+        assertThat(listGUI.getItemCount()).isEqualTo(list.size());
+    }
+    
 }
