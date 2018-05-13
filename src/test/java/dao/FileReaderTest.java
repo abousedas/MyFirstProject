@@ -18,15 +18,16 @@ public class FileReaderTest {
     }
     
     @Test
-    public void should_return_null_if_file_is_null() {
+    public void should_return_empty_list_when_file_is_null() {
         String[] file = reader.read();
-        assertThat(file).isNull();
+        assertThat(file).isEmpty();
     }
     
     @Test
-    public void should_return_empty_list_when_file_is_empty() {
-        reader.setFile("testFile.txt");
+    public void should_return_list_when_file_is_not_null_and_not_empty() {
+        reader.setFile("Pays.txt");
         String[] file = reader.read();
-        /* Trouver comment tester que file isEmpty() */
+        assertThat(file).isNotEmpty();  
     }
+    
 }
