@@ -40,7 +40,6 @@ public class ListAthletesObserverTest {
     
     @Test
     public void should_have_empty_list_if_action_received_is_not_instanceof_action() {
-        listAthletes.chargerAthletes();
         observer.update(listAthletes, "LOAD");
         ArrayList list = new ArrayList();
         for(int i = 0; i<listGUI.getItemCount(); i++) { list.add(listGUI.getItem(i)); } 
@@ -86,4 +85,5 @@ public class ListAthletesObserverTest {
         java.util.List list = listAthletes.getList();
         assertThat(listGUI.getItemCount()).isEqualTo(list.size());
     }  
+    
 }

@@ -21,17 +21,20 @@ public class ListAthletes extends ListeObjects {
         if (paysCrt != null && sportCrt != null) {
             this.setPos(NO_POS);
             super.aListe = athleteDao.getListeAthletes(paysCrt, sportCrt);
-            setChanged(); notifyObservers(new Action(Action.LOAD));
+            setChanged(); 
+            notifyObservers(new Action(Action.LOAD));
         }
     }
     
     public void setPaysCrt(Pays pays) { 
         paysCrt = pays; 
-        setChanged(); notifyObservers(new Action(Action.UPD));
+        setChanged(); 
+        notifyObservers(new Action(Action.UPD));
     }
     public void setSportCrt(Sport sport) { 
         sportCrt = sport; 
-        setChanged(); notifyObservers(new Action(Action.UPD));
+        setChanged(); 
+        notifyObservers(new Action(Action.UPD));
     }
     
     public Pays getPaysCrt() { return paysCrt; }

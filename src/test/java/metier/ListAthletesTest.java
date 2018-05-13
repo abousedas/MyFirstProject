@@ -1,17 +1,14 @@
 package metier;
 
 import dao.AthleteDao;
+import dao.FileReader;
 import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
 import java.util.List;
-import java.util.Observer;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.mockito.Matchers;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -25,13 +22,10 @@ public class ListAthletesTest {
     private AthleteDao dao;
     private Pays pays;
     private Sport sport;
-    private Observer observer;
     
     @BeforeTest
     protected void setUp() {
         listAthletes = new ListAthletes();
-        observer = mock(Observer.class);
-        listAthletes.addObserver(observer);
         dao = mock(AthleteDao.class);
         pays = new Pays(34, "CAN", "Canada");
         sport = new Sport(4, "Curling");
@@ -93,6 +87,26 @@ public class ListAthletesTest {
         listAthletes.chargerAthletes();
         Athlete athlete = (Athlete)listAthletes.get(0);
         assertThat(athlete).isNotNull();
+    }
+    
+    @Test 
+    public void observable_should_have_changed_after_chargerAthletes() {  
+        listAthletes.setSportCrt(sport);
+        listAthletes.setPaysCrt(pays);        
+        listAthletes.chargerAthletes();
+        assertThat(listAthletes.hasChanged()).isFalse();
+    }
+
+    @Test 
+    public void observable_should_have_changed_after_setSportCrt() {        
+        listAthletes.setSportCrt(sport);
+        assertThat(listAthletes.hasChanged()).isFalse();
+    }
+    
+    @Test 
+    public void observable_should_have_changed_after_setPaysCrt() {        
+        listAthletes.setPaysCrt(pays);
+        assertThat(listAthletes.hasChanged()).isFalse();
     }
     
 }
