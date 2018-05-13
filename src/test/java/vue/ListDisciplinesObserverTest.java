@@ -55,5 +55,12 @@ public class ListDisciplinesObserverTest {
         Sport sportCrt = listAthletes.getSportCrt();
         assertThat(sportCrt).isNotNull();
     }
-    
+
+    @Test
+    public void should_only_contain_unique_instance_of_discipline() {
+        action = new Action(Action.LOAD);
+        observer.update(listDisciplines, action);
+        java.util.List list = listDisciplines.getList();
+        assertThat(listGUI.getItemCount()).isEqualTo(list.size());
+    }    
 }
