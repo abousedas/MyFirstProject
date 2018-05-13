@@ -18,8 +18,8 @@ public class ListAthletes extends ListeObjects {
     private AthleteDao athleteDao = new AthleteDao(new FileReader());
     
     public void chargerAthletes() {
-        this.setPos(NO_POS);
         if (paysCrt != null && sportCrt != null) {
+            this.setPos(NO_POS);
             super.aListe = athleteDao.getListeAthletes(paysCrt, sportCrt);
             setChanged(); notifyObservers(new Action(Action.LOAD));
         }

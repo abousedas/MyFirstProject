@@ -5,8 +5,13 @@ import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
 import java.util.List;
+import java.util.Observer;
 import static org.assertj.core.api.Assertions.assertThat;
+import org.mockito.Matchers;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -20,10 +25,13 @@ public class ListAthletesTest {
     private AthleteDao dao;
     private Pays pays;
     private Sport sport;
+    private Observer observer;
     
     @BeforeTest
     protected void setUp() {
         listAthletes = new ListAthletes();
+        observer = mock(Observer.class);
+        listAthletes.addObserver(observer);
         dao = mock(AthleteDao.class);
         pays = new Pays(34, "CAN", "Canada");
         sport = new Sport(4, "Curling");
@@ -54,6 +62,18 @@ public class ListAthletesTest {
         assertThat(athletes).isEmpty();
     }
     
+    @Test
+    public void should_fill_the_list_after_chargerAthletes() {
+        listAthletes.setSportCrt(sport);
+        listAthletes.setPaysCrt(pays);
+        listAthletes.chargerAthletes();
+        List athletes = listAthletes.getList();
+        assertThat(athletes.size()).isGreaterThan(0);
+        for(Object item : athletes) {
+            assertThat(item).isExactlyInstanceOf(Athlete.class);
+        }
+    }    
+    
     @Test 
     public void should_return_null_if_pos_is_under_boundry() {
         Athlete athlete = (Athlete)listAthletes.get(-500);
@@ -74,4 +94,5 @@ public class ListAthletesTest {
         Athlete athlete = (Athlete)listAthletes.get(0);
         assertThat(athlete).isNotNull();
     }
+    
 }
