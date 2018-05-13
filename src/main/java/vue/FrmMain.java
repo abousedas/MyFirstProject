@@ -1,13 +1,12 @@
 package vue;
 
-import java.io.InputStream;
-import java.util.Properties;
+import java.util.List;
 import metier.*;
 
 public class FrmMain extends java.awt.Frame {
-    private ListPays listPays = new ListPays();
-    private ListDisciplines listDisciplines = new ListDisciplines();
-    private ListAthletes listAthletes = new ListAthletes();
+    protected ListPays listPays = new ListPays();
+    protected ListDisciplines listDisciplines = new ListDisciplines();
+    protected ListAthletes listAthletes = new ListAthletes();
 
     public FrmMain() {
         initComponents();
@@ -26,7 +25,7 @@ public class FrmMain extends java.awt.Frame {
         listPays.chargerDonnes();
         listDisciplines.chargerDonnes();
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -38,8 +37,6 @@ public class FrmMain extends java.awt.Frame {
         lstSports = new java.awt.List();
         lstAthletes = new java.awt.List();
         tfSport = new java.awt.TextField();
-        lblVersionTxt = new java.awt.Label();
-        lblVersionNbr = new java.awt.Label();
 
         setTitle("Liste des Athlètes aux JO 2018");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -62,7 +59,6 @@ public class FrmMain extends java.awt.Frame {
         tfPrenom.setEditable(false);
 
         tfNom.setEditable(false);
-        tfNom.setName(""); // NOI18N
 
         tfPays.setEditable(false);
 
@@ -72,7 +68,6 @@ public class FrmMain extends java.awt.Frame {
             }
         });
 
-        lstAthletes.setName(""); // NOI18N
         lstAthletes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 lstAthletesItemStateChanged(evt);
@@ -80,10 +75,6 @@ public class FrmMain extends java.awt.Frame {
         });
 
         tfSport.setEditable(false);
-
-        lblVersionTxt.setText("Version");
-
-        lblVersionNbr.setText("1.0.0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,10 +84,7 @@ public class FrmMain extends java.awt.Frame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblVersionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(lblVersionNbr, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
+                        .addGap(166, 166, 166)
                         .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -132,16 +120,9 @@ public class FrmMain extends java.awt.Frame {
                         .addComponent(tfSport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblVersionNbr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblVersionTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lstAthletes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        lblVersionNbr.getAccessibleContext().setAccessibleName("lblVersionNbr");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -166,8 +147,6 @@ public class FrmMain extends java.awt.Frame {
     }//GEN-LAST:event_lstAthletesItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Label lblVersionNbr;
-    private java.awt.Label lblVersionTxt;
     private java.awt.List lstAthletes;
     private java.awt.List lstPays;
     private java.awt.List lstSports;

@@ -31,10 +31,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lblVersionTxt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="lblVersionNbr" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                       <Component id="lstAthletes" min="-2" pref="220" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -80,13 +77,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lstAthletes" min="-2" pref="250" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblVersionNbr" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblVersionTxt" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -112,7 +102,6 @@
     <Component class="java.awt.TextField" name="tfNom">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
     </Component>
     <Component class="java.awt.TextField" name="tfPays">
@@ -126,9 +115,6 @@
       </Events>
     </Component>
     <Component class="java.awt.List" name="lstAthletes">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="lstAthletesItemStateChanged"/>
       </Events>
@@ -137,19 +123,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-    </Component>
-    <Component class="java.awt.Label" name="lblVersionTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Version"/>
-      </Properties>
-    </Component>
-    <Component class="java.awt.Label" name="lblVersionNbr">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="1.0.0"/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lblVersionNbr"/>
-      </AccessibilityProperties>
     </Component>
   </SubComponents>
 </Form>
