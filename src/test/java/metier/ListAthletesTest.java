@@ -55,8 +55,14 @@ public class ListAthletesTest {
     }
     
     @Test 
-    public void should_return_null_if_pos_is_invalide() {
+    public void should_return_null_if_pos_is_under_boundry() {
         Athlete athlete = (Athlete)listAthletes.get(-500);
+        assertThat(athlete).isNull();
+    }
+    
+    @Test 
+    public void should_return_null_if_pos_is_over_boundry() {
+        Athlete athlete = (Athlete)listAthletes.get(Integer.MAX_VALUE);
         assertThat(athlete).isNull();
     }
     
