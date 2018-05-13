@@ -8,6 +8,7 @@ public class Athlete {
     private Sport sport;
     
     public Athlete(int no, String prenom, String nom, Pays pays, Sport sport) { this.no=no; this.prenom=prenom; this.nom=nom; this.pays=pays; this.sport=sport; }
+    public Athlete(int no) { this(no, null, null, null, null); }
     
     public int getNo() { return no; }
     public String getPrenom() { return prenom; }
@@ -16,5 +17,7 @@ public class Athlete {
     public Sport getSport() { return sport; }
     
     public boolean equals(Object obj) { return this.no == ((Athlete)obj).no; }
-    public String toString() { return prenom+" "+nom; }
+    public String toString() { 
+        if(prenom == null && nom == null) { return ""; }
+        return prenom+" "+nom; }
 }
