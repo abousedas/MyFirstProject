@@ -1,7 +1,6 @@
 package vue;
 
 import java.awt.Component;
-import java.awt.event.WindowListener;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.testng.annotations.BeforeTest;

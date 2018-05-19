@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import metier.Action;
 import metier.ListAthletes;
 import static org.assertj.core.api.Assertions.assertThat;
+import org.mockito.Mockito;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -71,9 +72,9 @@ public class ListAthletesObserverTest {
     }
     
     @Test
-    public void should_interact_with_model_if_action_received_is_upd() {
+    public void should_load_athletes_if_action_received_is_upd() {
         action = new Action(Action.UPD);
-        ListAthletes spy = spy(listAthletes);
+        ListAthletes spy = Mockito.mock(ListAthletes.class);
         observer.update(spy, action);  
         verify(spy, atLeast(1)).chargerAthletes();
     }
