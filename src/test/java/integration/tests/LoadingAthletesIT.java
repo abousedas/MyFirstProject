@@ -50,7 +50,7 @@ public class LoadingAthletesIT {
     }
     
     @Test(dependsOnMethods = "select_sport")
-    public void should_fill_the_list_of_athletes() {
+    public void load_ahtletes() {
         listAthletes.chargerAthletes();
         assertThat(listAthletes.getList()).isNotNull();
         assertThat(listAthletes.getList()).isNotEmpty();
