@@ -18,7 +18,7 @@ public class ListDisciplines extends ListeObjects {
     private SportDao sportDao = new SportDao(new FileReader());
     
     public void chargerDonnes() {
-        super.aListe = sportDao.getListeSports();
+        super.aListe = (java.util.ArrayList)sportDao.getListeSports();
         setChanged(); notifyObservers(new Action(Action.LOAD));
     }
     

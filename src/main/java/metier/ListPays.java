@@ -22,7 +22,7 @@ public class ListPays extends ListeObjects {
     public ListPays(Observer obs) { super(obs); }
     
     public void chargerDonnes() {
-        super.aListe = paysDao.getListePays();
+        super.aListe = (java.util.ArrayList)paysDao.getListePays();
         setChanged(); notifyObservers(new Action(Action.LOAD));
     }
     

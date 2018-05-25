@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import domaine.Pays;
 
@@ -11,7 +12,7 @@ public class PaysDao {
     
     public PaysDao(FileReader reader) { this.reader=reader; reader.setFile(FICHIER_PAYS); }
 
-    public ArrayList getListePays() {
+    public List getListePays() {
         String[] tabPays = reader.read();
         ArrayList aLst = new ArrayList();
         for (int i = 0; i < tabPays.length; i++) {
