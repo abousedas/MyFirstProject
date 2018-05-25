@@ -18,3 +18,7 @@
 
 # build
 /target/*
+
+
+# IDE conf files
+.idea/*
