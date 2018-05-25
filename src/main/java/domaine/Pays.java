@@ -12,7 +12,20 @@ public class Pays {
     public int getNo() { return no; }
     public String getCode() { return code; }
     public String getNom() { return nom; }
-    
-    public boolean equals(Object obj) { return this.no == ((Pays)obj).no; }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) { return false; }
+        if(obj instanceof Pays) {
+            return this.no == ((Pays)obj).no;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public String toString() { return nom; }
 }

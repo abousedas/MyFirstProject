@@ -14,6 +14,7 @@ public class PaysTest {
     
     @BeforeTest
     protected void setUp() {
+        pays = new Pays(34);
     }
     
     @Test
@@ -25,16 +26,30 @@ public class PaysTest {
     
     @Test
     public void should_return_null_if_code_is_not_set() {
-        pays = new Pays(34);
         String code = pays.getCode();
         assertThat(code).isNull();
     }
     
     @Test
     public void should_return_null_if_nom_is_not_set() {
-        pays = new Pays(34);
         String nom = pays.getNom();
         assertThat(nom).isNull();
     }
+
+    @Test
+    public void should_return_false_if_param_not_instanceof_pays() {
+        assertThat(pays.equals(new Integer(5))).isFalse();
+    }
+
+    @Test
+    public void should_return_false_if_param_is_null() {
+        assertThat(pays.equals(null)).isFalse();
+    }
+
+    @Test
+    public void should_return_hashCode() {
+        assertThat(pays.hashCode()).isNotZero();
+    }
+
     
 }
