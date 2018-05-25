@@ -17,9 +17,22 @@ public class Athlete {
     public Sport getSport() { return sport; }
     
     @Override
-    public boolean equals(Object obj) { return this.no == ((Athlete)obj).no; }
+    public boolean equals(Object obj) {
+        if(obj == null) { return false; }
+        if(obj instanceof Athlete) {
+            return this.no == ((Athlete) obj).no;
+        }
+        return false;
+    }
+
     @Override
-    public String toString() { 
-        if(prenom == null && nom == null) { return null; }
-        return prenom+" "+nom; }
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        if(nom == null) { return prenom == null ? "" : prenom; }
+        return prenom+" "+nom;
+    }
 }

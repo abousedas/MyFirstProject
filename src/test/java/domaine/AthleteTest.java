@@ -64,5 +64,20 @@ public class AthleteTest {
         String athleteString = athlete.toString();
         assertThat(athleteString).isNotBlank();
     }
+
+    @Test
+    public void should_return_false_if_param_not_instanceof_pays() {
+        assertThat(athlete.equals(new Integer(5))).isFalse();
+    }
+
+    @Test
+    public void should_return_false_if_param_is_null() {
+        assertThat(athlete.equals(null)).isFalse();
+    }
+
+    @Test
+    public void should_return_hashCode() {
+        assertThat(athlete.hashCode()).isNotZero();
+    }
     
 }
