@@ -4,6 +4,7 @@ public class Action {
   
 	public static final int LOAD = 1, SEL = 2, ADD = 3, UPD = 4, DEL = 5; //NOSONAR
 
+	// TODO: Make this class an enum
 	private int action;   /* L'action: une des valeurs ci-dessus */
 	private int pos = -1; /* La position concernée */
   

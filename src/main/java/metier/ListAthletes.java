@@ -6,6 +6,8 @@ import domaine.Athlete;
 import domaine.Pays;
 import domaine.Sport;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author samyabouseda
@@ -20,7 +22,7 @@ public class ListAthletes extends ListeObjects {
     public void chargerAthletes() {
         if (paysCrt != null && sportCrt != null) {
             this.setPos(NO_POS);
-            super.aListe = athleteDao.getListeAthletes(paysCrt, sportCrt);
+            super.aListe = (ArrayList) athleteDao.getListeAthletes(paysCrt, sportCrt);
             setChanged(); 
             notifyObservers(new Action(Action.LOAD));
         }
