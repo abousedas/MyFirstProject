@@ -42,11 +42,12 @@ public class ListAthletes extends ListeObjects {
     public Sport getSportCrt() { return sportCrt; }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    @Override
     public Athlete get(int pos) {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Athlete)super.get(pos);
     }
     
-    public int size() { return super.size(); }
+    public int size() { return super.size(); } //NOSONAR
     
 }
