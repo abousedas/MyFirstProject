@@ -13,7 +13,7 @@ import metier.ListAthletes;
  */
 public class ListAthletesDetails implements Observer {
     
-    private TextField no, prenom, nom, natio, sport;
+    private TextField no, prenom, nom, natio, sport; //NOSONAR
     
     public ListAthletesDetails(TextField no, TextField prenom, TextField nom, TextField natio, TextField sport) { 
         this.no=no; this.prenom=prenom; this.nom=nom; this.natio=natio; this.sport=sport;
@@ -25,12 +25,10 @@ public class ListAthletesDetails implements Observer {
     
     private void update(Observable m, Action args) {
         ListAthletes o = (ListAthletes)m;
-        switch(((Action)args).getAction()) {
-            case Action.SEL : 
-                int posCrt = ((Action)args).getPos();
+        if(args.getAction() == Action.SEL) {
+                int posCrt = args.getPos();
                 if (posCrt != -1){ remplireChamps(posCrt, o); }
                 else {viderChamps();}
-                break;
         }
     }
     
