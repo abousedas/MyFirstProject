@@ -1,12 +1,11 @@
 package vue;
 
-import java.util.List;
 import metier.*;
 
 public class FrmMain extends java.awt.Frame {
-    protected ListPays listPays = new ListPays();
-    protected ListDisciplines listDisciplines = new ListDisciplines();
-    protected ListAthletes listAthletes = new ListAthletes();
+    protected ListPays listPays = new ListPays(); //NOSONAR
+    protected ListDisciplines listDisciplines = new ListDisciplines(); //NOSONAR
+    protected ListAthletes listAthletes = new ListAthletes(); //NOSONAR
 
     public FrmMain() {
         initComponents();
@@ -40,9 +39,11 @@ public class FrmMain extends java.awt.Frame {
 
         setTitle("Liste des Athlètes aux JO 2018");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -127,22 +128,22 @@ public class FrmMain extends java.awt.Frame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing //NOSONAR
         dispose();
     }//GEN-LAST:event_formWindowClosing
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed //NOSONAR
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
 
-    private void lstPaysItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstPaysItemStateChanged
+    private void lstPaysItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstPaysItemStateChanged //NOSONAR
         listPays.setPos(lstPays.getSelectedIndex());
     }//GEN-LAST:event_lstPaysItemStateChanged
 
-    private void lstSportsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstSportsItemStateChanged
+    private void lstSportsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstSportsItemStateChanged //NOSONAR
         listDisciplines.setPos(lstSports.getSelectedIndex());
     }//GEN-LAST:event_lstSportsItemStateChanged
 
-    private void lstAthletesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstAthletesItemStateChanged
+    private void lstAthletesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lstAthletesItemStateChanged //NOSONAR
         listAthletes.setPos(lstAthletes.getSelectedIndex());
     }//GEN-LAST:event_lstAthletesItemStateChanged
 
