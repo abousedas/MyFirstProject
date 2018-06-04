@@ -23,10 +23,12 @@ public class ListDisciplines extends ListeObjects {
     }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    @Override
     public Sport get(int pos) {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Sport)super.get(pos);
     }
-    
-    public int size() { return super.size(); }
+
+    @Override
+    public int size() { return super.size(); } //NOSONAR
 }
