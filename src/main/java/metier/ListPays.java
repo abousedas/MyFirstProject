@@ -27,12 +27,15 @@ public class ListPays extends ListeObjects {
     }
     
     /** Retourne l'Object d'indice pos, null si pos n'est pas correctement défini. */
+    @Override
     public Pays get(int pos) {
         if (pos < 0 || pos >= aListe.size()) { return null; }
         return (Pays)super.get(pos);
     }
-    
+
+    @Override
     public Pays get() {return (Pays)super.get();  } 
-    
-    public int size() { return super.size(); }
+
+    @Override
+    public int size() { return super.size(); } //NOSONAR
 }
