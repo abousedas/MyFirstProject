@@ -24,9 +24,10 @@ public class ListAthletesObserver implements Observer {
     
     private void update(Observable m, Action args) {
         ListAthletes o = (ListAthletes)m;
-        switch(((Action)args).getAction()) {
+        switch (args.getAction()) {
             case Action.UPD : o.chargerAthletes(); break;
-            case Action.LOAD: remplireListe(o);
+            case Action.LOAD: remplireListe(o); break;
+            default: return;
         }
     }
     
