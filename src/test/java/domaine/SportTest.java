@@ -14,19 +14,33 @@ public class SportTest {
     
     @BeforeTest
     protected void setUp() {
+        sport = new Sport(10);
     }
     
     @Test
     public void should_return_positive_number_when_getNo() {
-        sport = new Sport(10);
         int no = sport.getNo();
         assertThat(no).isPositive();
     }
 
     @Test
     public void should_return_null_if_nom_is_not_set() {
-        sport = new Sport(10);
         String nom = sport.getNom();
         assertThat(nom).isNull();
-    }    
+    }
+
+    @Test
+    public void should_return_false_if_param_not_instanceof_pays() {
+        assertThat(sport.equals(new Integer(5))).isFalse();
+    }
+
+    @Test
+    public void should_return_false_if_param_is_null() {
+        assertThat(sport.equals(null)).isFalse();
+    }
+
+    @Test
+    public void should_return_hashCode() {
+        assertThat(sport.hashCode()).isNotZero();
+    }
 }

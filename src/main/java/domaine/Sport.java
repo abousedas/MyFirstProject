@@ -10,6 +10,19 @@ public class Sport {
     public int getNo() { return no; }
     public String getNom() { return nom; }
     
-    public boolean equals(Object obj) { return this.no == ((Sport)obj).no; }
+    public boolean equals(Object obj) {
+        if(obj == null) { return false; }
+        if(obj instanceof Sport) {
+            return this.no == ((Sport)obj).no;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+
     public String toString() { return nom; }
 }
