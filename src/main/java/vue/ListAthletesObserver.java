@@ -27,7 +27,6 @@ public class ListAthletesObserver implements Observer {
         switch (args.getAction()) {
             case Action.UPD : o.chargerAthletes(); break;
             case Action.LOAD: remplireListe(o); break;
-            default: return;
         }
     }
     

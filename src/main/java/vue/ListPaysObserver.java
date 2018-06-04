@@ -24,7 +24,6 @@ public class ListPaysObserver implements Observer {
         switch(args.getAction()) {
             case Action.LOAD: chargerPays((ListPays)o); break;
             case Action.SEL : selPays((ListPays)o); break;
-            default: return;
         }
     }
     

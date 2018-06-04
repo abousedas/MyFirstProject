@@ -31,7 +31,6 @@ public class ListDisciplinesObserver implements Observer {
         switch(args.getAction()) {
             case Action.LOAD: chargerDisciplines((ListDisciplines)o); break;
             case Action.SEL : selSport((ListDisciplines)o); break;
-            default: return;
         }
     }
     
