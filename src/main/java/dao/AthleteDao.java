@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import domaine.Athlete;
 import domaine.Pays;
@@ -14,7 +15,7 @@ public class AthleteDao {
     public AthleteDao(FileReader reader) { this.reader=reader; reader.setFile(FICHIER_ATHLETES); }
 
 
-    public ArrayList getListeAthletes(Pays pays, Sport sport) {
+    public List getListeAthletes(Pays pays, Sport sport) {
         String[] tabAthletes = reader.read();
         ArrayList aLst = new ArrayList();
         for (String tabAthlete : tabAthletes) {
