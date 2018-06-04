@@ -23,7 +23,8 @@ public class ListPaysObserver implements Observer {
     private void update(Observable o, Action args) {
         switch(args.getAction()) {
             case Action.LOAD: chargerPays((ListPays)o); break;
-            case Action.SEL : selPays((ListPays)o);
+            case Action.SEL : selPays((ListPays)o); break;
+            default: return;
         }
     }
     
